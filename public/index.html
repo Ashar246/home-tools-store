@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>متجر الادوات المنزلية </title>
+    <style>
+        body { font-family: sans-serif; direction: rtl; background: #f0f0f0; margin: 0; }
+        header { background: #27ae60; color: white; padding: 20px; text-align: center; }
+        #products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+        .product-card { background: white; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+        /* السلة أسفل اليسار */
+        .cart-box {
+            position: fixed; bottom: 20px; left: 20px; width: 260px;
+            background: white; border: 2px solid #27ae60; border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); z-index: 1000; padding: 10px;
+        }
+        .btn-add { background: #27ae60; color: white; border: none; padding: 8px; width: 100%; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏠 متجر الادوات المنزلية</h1>
+        <p>كل ما يلزم منزلك </p>
+    </header>
+
+    <div style="text-align:center; margin:20px;">
+        <input type="text" id="searchInput" placeholder="ابحث عن منتج..." oninput="searchProducts()" style="padding:10px; width:50%;">
+        <div class="filter-buttons" style="margin-top:10px;"></div>
+    </div>
+
+    <div id="products-grid"></div>
+
+    <div class="cart-box">
+        <h3 style="margin-top:0; text-align:center;">🛒 السلة</h3>
+        <ul id="cart-items" style="list-style:none; padding:0; max-height:150px; overflow-y:auto;"></ul>
+        <p id="cart-total" style="font-weight:bold; border-top:1px solid #eee; padding-top:10px;">المجموع: 0 ₪</p>
+        <button onclick="confirmOrder()" style="width:100%; background:#27ae60; color:white; border:none; padding:10px; cursor:pointer; margin-bottom:5px;">تأكيد الطلب</button>
+        <button onclick="clearCart()" style="width:100%; background:#e74c3c; color:white; border:none; padding:5px; cursor:pointer;">تفريغ</button>
+    </div>
+<input type="text" id="searchInput" oninput="searchProducts()" placeholder="ابحث عن منتج...">
+<script src="script.js?v=1"></script>
+</body>
+</html>
